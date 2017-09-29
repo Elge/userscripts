@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Hide unrated games
+// @name         Hide unrated games on metacritic new releases
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Hide games with neither critic nor user review scores from the new releases games list.

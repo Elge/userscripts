@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         SFdebris next video button
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      1.01
 // @description  Add a Next video button to sfdebris videos.
-// @author       You
+// @author       Elge
 // @match        http://sfdebris.com/*
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js

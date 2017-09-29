@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide unrated games on metacritic new releases
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      1.01
 // @description  Hide games with neither critic nor user review scores from the new releases games list.
 // @author       Elge
 // @match        http://www.metacritic.com/g00/browse/games/release-date/new-releases/pc/date*

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SFdebris binge mode
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Makes a few changes to sfdebris to make binge watching easier: The site is expanded so videos fill most of the screen by default, the playlist collapse when clicking their header and adds "Next part" and "Next video" buttons to the videos for fast access.
 // @author       Elge
 // @match        http://sfdebris.com/*
@@ -15,14 +15,16 @@
     // Unfloat navigation menu
     window.addEventListener('load', function() {
         let nav = $('#nav');
-        nav.css('position', 'initial');
-        nav.css('top', 'initial');
-        nav.css('left', 'initial');
-        nav.css('margin', 'initial');
+        nav.css('position', 'unset');
+        nav.css('top', 'unset');
+        nav.css('left', 'unset');
+        nav.css('margin', '0 auto');
         $('#header').append(nav);
 
         // Expand viewport and video player
         $('#wrap').css('width', '90%');
+        $('#header').css('background-position', 'center');
+        $('#content').css('width', '100%');
         $('#content').css('display', 'table');
         $('#content').css('background-repeat', 'repeat');
         $('#main').css('display', 'table-cell');

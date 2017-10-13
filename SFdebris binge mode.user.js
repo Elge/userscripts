@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SFdebris binge mode
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  Makes a few changes to sfdebris to make binge watching easier: The site is expanded so videos fill most of the screen by default, the playlist collapse when clicking their header and adds "Next part" and "Next video" buttons to the videos for fast access.
 // @author       Elge
 // @match        http://sfdebris.com/videos/*
@@ -57,17 +57,27 @@
         $('li > a[href="' + document.location.href + '"]').css('background', '#555');
 
         // Next part/video button
-        let url = $('li > a[href="' + document.location.href + '"]').parent().next().children().attr('href');
+        let nextVideo = $('li > a[href="' + document.location.href + '"]').parent().next().children();
         let videoheaders = $('div.vidtitle > h1');
         videoheaders.append(function(index) {
             if (index == videoheaders.length - 1) {
-                return $('<a id="videoheader' + index + '" href="' + (url ? url : '') + '" style="float: right">' + (url ? 'Next video' : '') + '</a>');
+                return $('<a href="' + (nextVideo ? nextVideo.attr('href') : '') + '" style="float: right">' + (nextVideo ? 'Next video: ' + nextVideo.text() : '') + '</a>');
             } else {
-                return $('<a id="videoheader' + index + '" onclick="document.getElementById(\'videoheader' + (index + 1) + '\').scrollIntoView();" style="float: right; cursor: pointer">Next part</a>');
+                return $('<a onclick="window.sfDscrollTo(document.getElementById(\'videoiframe' + (index + 1) + '\'));" style="float: right; cursor: pointer">Next part</a>');
             }
+        });
+        $('iframe').each(function(index) {
+            $(this).attr('id', 'videoiframe' + index);
         });
 
         // Scroll to first video
-        document.getElementById('videoheader0').scrollIntoView();
+        window.sfDscrollTo(document.getElementById('videoiframe0'));
     });
+
+    window.sfDscrollTo = function(element) {
+        let rect = element.getBoundingClientRect();
+        let pos = (rect.top + rect.height / 2) - window.innerHeight / 2;
+        console.log('Top: ' + rect.top + '; Height: ' + rect.height + '; Window: ' + window.innerHeight);
+        window.scrollBy(0, pos);
+    };
 })();

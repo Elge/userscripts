@@ -4,7 +4,7 @@
 // @version      1.5
 // @description  Makes a few changes to sfdebris to make binge watching easier: The site is expanded so videos fill most of the screen by default, the playlist collapse when clicking their header and adds "Next part" and "Next video" buttons to the videos for fast access.
 // @author       Elge
-// @match        http://sfdebris.com/videos/*
+// @match        *://sfdebris.com/videos/*
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
 // ==/UserScript==
@@ -36,22 +36,6 @@
         $('.imgcen iframe').wrap('<div style="width: 100%; padding-bottom: 56.25%; position: relative"><div style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; max-height: 100vh" /></div>');
         $('.imgcen iframe').css('width', '100%');
         $('.imgcen iframe').css('height', '100%');
-
-        // Collapse/expand playlist
-        let header;
-        $('.ep').children().each(function(index) {
-            if (this.nodeName === 'H6') {
-                header = $('<div id="sfdcoll' + index + '"/>');
-
-                $(this).wrap('<div />');
-                $(this).parent().append(header);
-
-                this.onclick = function() { $('#sfdcoll' + index).toggle(); };
-                this.style.cursor = 'pointer';
-            } else if (this.nodeName === 'LI' && header) {
-                header.append(this);
-            }
-        });
 
         // Mark current video
         $('li > a[href="' + document.location.href + '"]').css('background', '#555');

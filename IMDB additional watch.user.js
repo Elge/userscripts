@@ -31,9 +31,21 @@
         let id = /^https?:\/\/www.imdb.com\/title\/(tt[^\/]+)\/?.*/.exec(location.href)[1];
         url += '/search.php?search_keywords=' + id + '&search_terms=all&search_forum=4,57,88&search_fields=msgonly';
 
-        $('div.showtime.full-table').append('<div title="On WarezBB" class="watch-option secondary-watch-option" data-href="' + url + '">'
-                                            + '<div class="watch-icon tv"></div>'
-                                            + '<div class="secondary-info">ON&nbsp;' + label + '</div>'
-                                            + '</div>');
+        if ($('div.showtime.full-table').length === 0) {
+            $('<span class="ab_widget"><div class="watchbar2 article"><div class="showtime full-table"></div></div></span>')
+                .insertAfter($('div.vital'));
+            $('div.showtime.full-table').append('<div title="' + label + '" class="watch-option secondary-watch-option">'
+                                                + '<a href="' + url + '">'
+                                                + '<div class="watch-icon tv"></div>'
+                                                + '<div class="secondary-info">ON&nbsp;' + label + '</div>'
+                                                + '</a>'
+                                                + '</div>');
+
+        } else {
+            $('div.showtime.full-table').append('<div title="' + label + '" class="watch-option secondary-watch-option" data-href="' + url + '">'
+                                                + '<div class="watch-icon tv"></div>'
+                                                + '<div class="secondary-info">ON&nbsp;' + label + '</div>'
+                                                + '</div>');
+        }
     });
 })();

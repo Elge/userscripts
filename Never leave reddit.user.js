@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Never leave reddit
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      1.1
 // @description  Require confirmation before leaving reddit page.
 // @author       You
 // @match        https://www.reddit.com/r/all/

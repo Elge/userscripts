@@ -4,8 +4,7 @@
 // @version      1
 // @description  Require confirmation before leaving reddit page.
 // @author       You
-// @match        https://www.reddit.com/
-// @match        https://www.reddit.com/r/*/
+// @match        https://www.reddit.com/r/all/
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         StpApp add exams
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      1.1
 // @description  Writes exams for CS16-2 into StpApp!
 // @author       You
 // @match        http://stpapp.ba-leipzig.de/*
@@ -18,8 +18,8 @@
 
     let exams = [
         {
-            subject: 'Datenschutz und Kryptographie',
-            short: 'Datenschutz',
+            subject: 'Kryptographie',
+            short: 'Kryptographie',
             room: 'unbekannt',
             date: new Date('2018-09-19'),
             times: ['480.570', '600.690', '720.810'],

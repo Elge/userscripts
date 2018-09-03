@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         StpApp add exams
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Writes exams for CS16-2 into StpApp!
 // @author       You
 // @match        http://stpapp.ba-leipzig.de/*
@@ -35,7 +35,7 @@
         },
         {
             subject: 'Softwaretechnik u. Projektmanag.',
-            short: 'Software',
+            short: 'ST & PM',
             room: 'unbekannt',
             date: new Date('2018-09-25'),
             times: ['480.570', '600.690', '720.810'],
@@ -43,7 +43,7 @@
         },
         {
             subject: 'Computernetzw. u Drahtl. Kommun.',
-            short: 'Netzwerke',
+            short: 'CN & DK',
             room: 'unbekannt',
             date: new Date('2018-09-27'),
             times: ['480.570', '600.690', '720.810'],

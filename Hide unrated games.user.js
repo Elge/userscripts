@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide unrated games on metacritic new releases
 // @namespace    http://tampermonkey.net/
-// @version      1.02
+// @version      1.1
 // @description  Hide games with neither critic nor user review scores from the new releases games list.
 // @author       Elge
 // @match        https://www.metacritic.com/browse/games/release-date/new-releases/pc/date*
@@ -12,6 +12,14 @@
 (function() {
     'use strict';
 
-    // Your code here...
-    $('li.game_product').filter(function(index) {return $('div.tbd', this).length === 1;}).filter(function(index) {return $('span.textscore_tbd', this).length === 1;}).hide();
+    $('table.clamp-list tr:not(.spacer)')
+        .filter(function(index) {return $('div.clamp-metascore .tbd', this).length === 1;})
+        .filter(function(index) {return $('div.clamp-userscore .tbd', this).length === 1;})
+        .hide()
+        .next('.spacer')
+        .hide();
+
+    $('.browse_list_wrapper')
+        .css('border', '0')
+        .css('padding-top', '0');
 })();

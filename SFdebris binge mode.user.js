@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SFdebris binge mode
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Makes a few changes to sfdebris to make binge watching easier: The site is expanded so videos fill most of the screen by default, the playlist collapse when clicking their header and adds "Next part" and "Next video" buttons to the videos for fast access.
 // @author       Elge
 // @match        *://sfdebris.com/videos/*
@@ -64,6 +64,8 @@
     $('iframe').each(function(index) {
         $(this).attr('id', 'videoiframe' + index);
     });
+
+    $('#main > div > p:nth-child(1)').css({'font-weight':'normal','font-size':'large','color':'white','letter-spacing':'1px;'});
 
     // Scroll to first video
     window.sfDscrollTo(document.getElementById('videoiframe0'));
